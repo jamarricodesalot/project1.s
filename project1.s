@@ -15,3 +15,9 @@ main:
     syscall
     
     li $t0, 0
+    li $t1, 10
+    la $t2, input
+li $v0, 4
+la $a0, string
+syscall
+    
