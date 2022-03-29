@@ -21,3 +21,14 @@ li $v0, 4
 la $a0, string
 syscall
     
+    loop:
+            lb $a0, 0($t2)
+            beq $a0, $t1, exit
+            
+            #checkpoints
+            
+            checkif09:
+                    li $t3. '0'
+                    blt $a0, $t3, invalidchar
+                    li $t3, '9'
+                    ble $a0, $t3, sum1
