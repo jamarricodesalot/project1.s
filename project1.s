@@ -9,3 +9,9 @@
     .text
 main:
     #reads input from user
+    li $v0, 8
+    la $a0, input
+    li $a1, 11
+    syscall
+    
+    li $t0, 0
