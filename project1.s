@@ -17,7 +17,9 @@ main:
    li $t0, 0
    li $t1, 10
    la $t2, input
-
+li $v0, 4
+la $a0, string
+syscall
    loop:
             lb $a0, 0($t2)
             beq $a0, $t1, exit
@@ -37,11 +39,12 @@ main:
                 ble $a0, $t3, sum1
                     
                     
-            checkifAt:
+            checkifat:
                 li $t3. '0'
                 blt $a0, $t3, invalidchar
                 li $t3, '9'
                 ble $a0, $t3, sum1
+                bgt $a0, $t1, invalidchar
                 
 sum09: 
     addi $t4, $a0, -48
@@ -49,8 +52,27 @@ sum09:
     addi $t2, $t2, 1
     j loop
 
-sumAU:
+sumAT:
     addi $t4, $a0, -55
     add $t0, $t0, $t4
     addi $t2, $t2, 1
     j loop
+
+sumat:
+    addi $t4, $a0, -87
+    add $t0, $t0, $t4
+    addi $t2, $t2, 1
+    j loop
+    
+invalidchar:
+    addi $t2, $t2, 1
+    j loop
+
+exit:
+    move $a0, $t0
+    li $v0, 1
+    syscall
+
+li $v0, 10
+syscall
+    
