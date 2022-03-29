@@ -42,3 +42,15 @@ main:
                 blt $a0, $t3, invalidchar
                 li $t3, '9'
                 ble $a0, $t3, sum1
+                
+sum09: 
+    addi $t4, $a0, -48
+    add $t0, $t0, $t4
+    addi $t2, $t2, 1
+    j loop
+
+sumAU:
+    addi $t4, $a0, -55
+    add $t0, $t0, $t4
+    addi $t2, $t2, 1
+    j loop
